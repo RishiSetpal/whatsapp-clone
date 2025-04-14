@@ -1,0 +1,13 @@
+<div class="chat-page-container" [class.dark-theme]="isDarkTheme">
+  <div class="sidebar">
+    <app-contacts-list [contacts]="contacts" (contactSelected)="onContactSelected($event)"></app-contacts-list>
+    <app-settings></app-settings>
+  </div>
+
+  <div class="chat-window">
+    <app-chat-window [currentUser]="currentUser" [contact]="selectedContact"></app-chat-window>
+  </div>
+
+  <!-- Dark Mode Toggle Button -->
+  <button (click)="toggleDarkTheme()">Toggle Dark Theme</button>
+</div>

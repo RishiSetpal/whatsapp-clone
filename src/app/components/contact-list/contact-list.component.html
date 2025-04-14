@@ -1,0 +1,4 @@
+<input [(ngModel)]="searchQuery" placeholder="Search contacts..." />
+<div *ngFor="let contact of filteredContacts" (click)="onContactClick(contact)">
+  {{ contact.name }}
+</div>

@@ -1,0 +1,6 @@
+<div class="bubble" [ngClass]="{ 'me': message.sender === currentUser, 'other': message.sender !== currentUser }">
+    <span class="sender">{{ message.sender }}</span>
+    <div class="text">{{ message.text }}</div>
+    <div class="time">{{ message.time }}</div>
+  </div>
+  

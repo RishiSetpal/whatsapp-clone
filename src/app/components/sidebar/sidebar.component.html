@@ -1,0 +1,10 @@
+<div class="sidebar">
+    <h2>Chats</h2>
+    <div *ngFor="let contact of contacts" class="contact" (click)="openChat(contact)">
+      <div class="avatar">{{ contact.username[0] }}</div>
+      <div class="info">
+        <h4>{{ contact.username }}</h4>
+        <span *ngIf="contact.online" class="online">Online</span>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,33 @@
+.contacts-container {
+    padding: 1rem;
+    border-right: 1px solid #ccc;
+    height: 100%;
+    background: #f9f9f9;
+  }
+  
+  .contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .contact-list li {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.3s;
+  }
+  
+  .contact-list li:hover {
+    background: #e0e0e0;
+  }
+  
+  .contact-list img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  

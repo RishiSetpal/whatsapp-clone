@@ -1,0 +1,33 @@
+/* Default light theme styles */
+.chat-page-container {
+  background-color: white;
+  color: black;
+}
+
+/* Dark theme styles */
+.chat-page-container.dark-theme {
+  background-color: #333;
+  color: white;
+}
+
+.chat-header {
+  background-color: #444;
+}
+
+.chat-messages {
+  background-color: #555;
+}
+
+.chat-input {
+  background-color: #444;
+  color: white;
+}
+
+button {
+  background-color: #666;
+  color: white;
+}
+
+button:hover {
+  background-color: #888;
+}

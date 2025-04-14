@@ -1,0 +1,40 @@
+<div class="chat-container">
+  <div class="chat-header">
+    <div class="avatar">{{ contact?.username[0] }}</div>
+    <div class="info">
+      <h4>{{ contact?.username }}</h4>
+      <span *ngIf="contact?.online">Online</span>
+    </div>
+  </div>
+
+  <div class="chat-messages" #scrollMe>
+    <div *ngFor="let msg of messages" [class.me]="msg.sender === currentUser" class="message-bubble">
+      <div class="sender">{{ msg.sender }}</div>
+      <div class="content">{{ msg.content }}</div>
+    </div>
+  </div>
+
+  <div class="chat-input">
+    <button (click)="showEmojiPicker = !showEmojiPicker">😀</button>
+    <input [(ngModel)]="message" placeholder="Type a message" (keydown.enter)="sendMessage()" />
+    <button (click)="sendMessage()">Send</button>
+  </div>
+
+  <div *ngIf="showEmojiPicker" class="emoji-picker">
+    <span (click)="addEmoji('😀')">😀</span>
+    <span (click)="addEmoji('😂')">😂</span>
+    <span (click)="addEmoji('😍')">😍</span>
+    <span (click)="addEmoji('😎')">😎</span>
+    <span (click)="addEmoji('😭')">😭</span>
+    <span (click)="addEmoji('😊')">😊</span>
+    <span (click)="addEmoji('😢')">😢</span>
+    <span (click)="addEmoji('😜')">😜</span>
+    <span (click)="addEmoji('😇')">😇</span>
+    <span (click)="addEmoji('😏')">😏</span>
+    <span (click)="addEmoji('🧐')">🧐</span>
+    <span (click)="addEmoji('🥺')">🥺</span>
+    <span (click)="addEmoji('😈')">😈</span>
+    <span (click)="addEmoji('👻')">👻</span>
+    <span (click)="addEmoji('🤔')">🤔</span>
+  </div>
+</div>
