@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-contacts-list',
-  imports:[CommonModule,FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './contact-list.component.html',
-  styleUrls: ['./contact-list.component.scss']
+  styleUrls: ['./contact-list.component.scss'],
 })
 export class ContactsListComponent {
   @Input() contacts: any[] = [];
@@ -13,8 +13,8 @@ export class ContactsListComponent {
   searchQuery: string = '';
 
   get filteredContacts() {
-    return this.contacts.filter(contact =>
-      contact.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+    return this.contacts.filter((contact) =>
+      contact.name?.toLowerCase()?.includes(this.searchQuery.toLowerCase())
     );
   }
 

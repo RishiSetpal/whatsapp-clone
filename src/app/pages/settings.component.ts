@@ -5,10 +5,10 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.css']
+  styleUrls: ['./settings.component.css'],
 })
 export class SettingsComponent {
-  username = localStorage.getItem('currentUser');
+  username = localStorage.getItem('username');
 
   clearStorage() {
     if (confirm('Are you sure you want to clear chat history and logout?')) {

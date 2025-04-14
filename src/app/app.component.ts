@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { SocketService } from './core/socket.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
+  imports: [RouterModule],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   currentUser = '';

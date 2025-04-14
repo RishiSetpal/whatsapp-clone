@@ -18,7 +18,7 @@ import { SocketService } from '../../core/socket.service';
   styleUrls: ['./chat-window.component.scss'],
 })
 export class ChatWindowComponent implements OnInit, AfterViewInit {
-  @Input() currentUser: string = '';
+  @Input() currentUser: string = localStorage.getItem('username') || '';
   @Input() contact: any;
   @Input() selectedUser: any;
 
@@ -43,7 +43,7 @@ export class ChatWindowComponent implements OnInit, AfterViewInit {
     this.socketService.onTyping((user: string) => {
       if (user !== this.currentUser) {
         this.typingIndicator = `${user} is typing...`;
-        setTimeout(() => (this.typingIndicator = ''), 2000); 
+        setTimeout(() => (this.typingIndicator = ''), 2000);
       }
     });
 
@@ -54,11 +54,13 @@ export class ChatWindowComponent implements OnInit, AfterViewInit {
       }
     });
 
-    this.socketService.onStatusChange((status: { user: string; status: string }) => {
-      if (status.user === this.selectedUser) {
-        console.log(`${status.user} is ${status.status}`);
+    this.socketService.onStatusChange(
+      (status: { user: string; status: string }) => {
+        if (status.user === this.selectedUser) {
+          console.log(`${status.user} is ${status.status}`);
+        }
       }
-    });
+    );
   }
 
   ngAfterViewInit(): void {
@@ -71,11 +73,11 @@ export class ChatWindowComponent implements OnInit, AfterViewInit {
       sender: this.currentUser,
       content: this.message,
       timestamp: new Date(),
-      id: new Date().toString(), 
+      id: new Date().toString(),
       read: false,
     };
     this.socketService.sendMessage(msg);
-    this.messages.push(msg); 
+    // this.messages.push(msg);
     this.message = '';
     this.showEmojiPicker = false;
     setTimeout(() => this.scrollToBottom(), 100);
